@@ -56,101 +56,6 @@
                 </div>
             </div>
     
-            <div id="mapid" style="width: 600px;  height: 400px;"></div>
-  <script type="text/javascript">
-   
-
-
-
-      navigator.geolocation.getCurrentPosition(userLocated, locationError);
-      //missing code 2: define function userLocated
-      function userLocated(position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-       
-     
-        var mymap = L.map('mapid').setView([latitude, longitude], 16);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                maxZoom: 19,
-                                 attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-                                         }).addTo(mymap);
-        var marker = L.marker([latitude, longitude]).addTo(mymap);
-
-        marker.bindPopup("Hello YEDISH").openPopup();
-
-        var circle = L.circle([latitude, longitude], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 100
-      }).addTo(mymap);
-      circle.bindPopup("Your Location");
-      }
-    
-
-
-      function locationError(error) {
-        switch(error.code) {
-case error.PERMISSION_DENIED:
-alert("Permission Denied- " + error.message);
-break;
-case error.POSITION_UNAVAILABLE:
-alert("Position Not Available- "+ error.message);
-break;
-case error.TIMEOUT:
-alert("Request Time out- "+ error.message);
-break;
-}
-}//end the function
-//end the else block
-                 
-              
-
-  </script>
-</body>
-          
-            </br>
-            <div data-role="footer">
-               <h1>Leaflet API</h1> 
-            </div>
-    
-    
-        </div>
-    
-        <!-- Calculator Page -->
-    
-        <div data-role="page" id="calculator" data-theme="b">
-    
-            <div data-role="header">
-                <h1>GeoLocation</h1>
-            </div>
-    
-    
-            <div class="nav">
-                <div data-role="navbar">
-    
-    
-                    <ul>
-    
-                        <li>
-    
-    
-                            <a href="#home" class="ui-btn ui-icon-home ui-btn-icon-top">My Location</a>
-                        </li>
-                        <li>
-    
-    
-                            <a href="#" class="ui-btn ui-icon-grid ui-btn-icon-top">Search Location</a><br>
-                        </li>
-                        <li>
-    
-    
-                            <a href="#help" class="ui-btn ui-icon-info ui-btn-icon-top">View More Details</a><br>
-    
-                        </li>
-    
-                </div>
-            </div>
             <div id="map" style="width: 600px; height: 400px;"></div>
             
             <script type="text/javascript">
@@ -218,6 +123,51 @@ searchControl.on("results", function (data) {
                         
           
             </script>
+</body>
+          
+            </br>
+            <div data-role="footer">
+               <h1>Leaflet API</h1> 
+            </div>
+    
+    
+        </div>
+    
+        <!-- Calculator Page -->
+    
+        <div data-role="page" id="calculator" data-theme="b">
+    
+            <div data-role="header">
+                <h1>GeoLocation</h1>
+            </div>
+    
+    
+            <div class="nav">
+                <div data-role="navbar">
+    
+    
+                    <ul>
+    
+                        <li>
+    
+    
+                            <a href="#home" class="ui-btn ui-icon-home ui-btn-icon-top">My Location</a>
+                        </li>
+                        <li>
+    
+    
+                            <a href="#" class="ui-btn ui-icon-grid ui-btn-icon-top">Search Location</a><br>
+                        </li>
+                        <li>
+    
+    
+                            <a href="#help" class="ui-btn ui-icon-info ui-btn-icon-top">View More Details</a><br>
+    
+                        </li>
+    
+                </div>
+            </div>
+          
     
           
                     </br>
