@@ -14,7 +14,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
     <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
-
     <!-- Load Esri Leaflet from CDN -->
     <script src="https://unpkg.com/esri-leaflet"></script>
 
@@ -33,15 +32,9 @@
             <div data-role="header">
                 <h1>GeoLocation</h1>
             </div>
-    
-    
-    
             <div class="nav">
                 <div data-role="navbar">
-    
-    
                     <ul>
-    
                         <li>
     
     
@@ -67,7 +60,7 @@
   <script type="text/javascript">
    
 
-      //missing code 1: call to getCurrentPosition function
+
 
       navigator.geolocation.getCurrentPosition(userLocated, locationError);
       //missing code 2: define function userLocated
@@ -75,19 +68,12 @@
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
        
-
+     
         var mymap = L.map('mapid').setView([latitude, longitude], 16);
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-          maxZoom: 19,
-          attribution: 'Map data &copy;' +
-            '<a href="https://www.openstreetmap.org/">OpenStreetMap</a>' +
-            'contributors,<a href="https://creativecommons.org/licenses' +
-            '/by-sa/2.0/">CC-BY-SA</a>,Imagery © <a href="https://' +
-            'www.mapbox.com/">Mapbox</a>',
-          id: 'mapbox.streets',
-          accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYyc' +
-            'XBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
-        }).addTo(mymap);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                maxZoom: 19,
+                                 attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                                         }).addTo(mymap);
         var marker = L.marker([latitude, longitude]).addTo(mymap);
 
         marker.bindPopup("Hello YEDISH").openPopup();
@@ -178,19 +164,14 @@ break;
                   var latitude = position.coords.latitude;
                   var longitude = position.coords.longitude;
                  
-          
+                 
                   var map = L.map('map').setView([latitude, longitude], 16);
-                  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                    maxZoom: 19,
-                    attribution: 'Map data &copy;' +
-                      '<a href="https://www.openstreetmap.org/">OpenStreetMap</a>' +
-                      'contributors,<a href="https://creativecommons.org/licenses' +
-                      '/by-sa/2.0/">CC-BY-SA</a>,Imagery © <a href="https://' +
-                      'www.mapbox.com/">Mapbox</a>',
-                    id: 'mapbox.streets',
-                    accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYyc' +
-                      'XBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
-                  }).addTo(map);
+                
+                              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                maxZoom: 19,
+                                 attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                                         }).addTo(map);
+                
                   var marker = L.marker([latitude, longitude]).addTo(map);
                   var tiles = L.esri.basemapLayer("Streets").addTo(map);
                   // create the geocoding control and add it to the map
@@ -296,8 +277,8 @@ searchControl.on("results", function (data) {
                       
                               var map1 = L.map('mapping').setView([latitude, longitude], 16);
                               L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map1);
+                                 attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                                         }).addTo(map1);
                              
                             }
                               var marker = L.marker([latitude, longitude]).addTo(map1);
